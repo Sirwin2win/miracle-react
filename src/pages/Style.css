@@ -1,0 +1,11 @@
+#demo{
+    color:red;
+    font-family:'forte';
+    font-weight: bold;
+}
+.yes{
+    background-image: linear-gradient(red,green,blue,yellow);
+    height: 300px;
+    width: 300px;
+    color: #fff;
+}
