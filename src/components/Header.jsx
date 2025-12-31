@@ -33,7 +33,7 @@ const Header = () => {
           </ul>
         </li>
         <li class="nav-item">
-          <Link class="nav-link disabled" aria-disabled="true">Disabled</Link>
+          <Link class="nav-link" to={'/products'}>Products</Link>
         </li>
       </ul>
       <form class="d-flex" role="search">
