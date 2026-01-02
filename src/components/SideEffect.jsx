@@ -1,10 +1,13 @@
-import {useState,useEffect} from 'react'
+import {useState,useEffect, useContext} from 'react'
 import { FaRegStar,FaEye  } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import ThemeContext from '../ThemeContext';
 
-const SideEffect = () => {
-    // useEffect is used to handle a side effect in our programe e.g external apis
+const SideEffect = ({info,data,foo, obj}) => {
+    // useEffect is used to handle Link side effect in our programe e.g external apis
     // useState is used to manage state(data) variable within our component
     const [products, setProducts] = useState([])
+     const {theme, toggleTheme} = useContext(ThemeContext)
     useEffect(()=>{
         fetch('https://fakestoreapi.com/products')
         .then(res=>res.json())
@@ -13,9 +16,13 @@ const SideEffect = () => {
     // console.log(products)
   return (
     <div className='container'>
+      <h1 style={{color:theme==='white'?'black':'white'}}>{info}</h1>
+      <h1 style={{color:theme==='white'?'black':'white'}}>{data}</h1>
+      <h1 style={{color:theme==='white'?'black':'white'}}>{foo}</h1>
+      <h1 style={{color:theme==='white'?'black':'white'}}>{obj.email}</h1>
        <div className="row">
       {products.map((product=>(
-        <div className='col-sm-4 mb-5'>
+        <div className='col-sm-4 mb-5' key={product.id}>
           <div className="card" style={{width: '18rem'}}>
   <img src={product.image} className="card-img-top" alt="..." />
   <div className="card-body">
@@ -27,7 +34,7 @@ const SideEffect = () => {
     </div>
     
     <br />
-    <a href="#" className="btn btn-primary">Go somewhere</a>
+    <Link to={`/product/${product.id}`} className="btn btn-primary">Go somewhere</Link>
   </div>
 </div>
         </div>

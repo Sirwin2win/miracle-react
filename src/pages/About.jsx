@@ -42,7 +42,7 @@ const About = () => {
       <p>{color}</p>
       <button onClick={()=>square(4)}>Square</button>
       <button onClick={()=>setColor('lime')} style={{backgroundColor:color}}>Red</button>
-      <button onClick={handleStud}>Change Stud</button>
+      {/* <button onClick={handleStud}>Change Stud</button> */}
       <button onClick={handleFruits}>Change Fruits</button>
     </div>
   )
